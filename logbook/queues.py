@@ -14,13 +14,7 @@ from threading import Thread, Lock
 import platform
 from logbook.base import NOTSET, LogRecord, dispatch_record
 from logbook.handlers import Handler, WrapperHandler
-from logbook.helpers import PY2
-
-if PY2:
-    from Queue import Empty, Queue as ThreadQueue
-else:
-    from queue import Empty, Queue as ThreadQueue
-
+from Queue import Empty, Queue as ThreadQueue
 
 class RedisHandler(Handler):
     """A handler that sends log messages to a Redis instance.
